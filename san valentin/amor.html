@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quieres ser mi San Valentín?</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff4d6d, #ff758f);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+        overflow: hidden;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 0 25px rgba(0,0,0,0.3);
+        max-width: 400px;
+        animation: aparecer 2s ease;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-bottom: 25px;
+    }
+
+    button {
+        background: #fff;
+        color: #ff4d6d;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1.1em;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ffdde1;
+        transform: scale(1.1);
+    }
+
+    .respuesta {
+        margin-top: 25px;
+        font-size: 1.4em;
+        display: none;
+        animation: aparecer 1s ease;
+    }
+
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Corazones flotando */
+    .heart {
+        position: absolute;
+        bottom: -20px;
+        color: rgba(255,255,255,0.8);
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-100vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>💖Amor Mio 💖</h1>
+    <p>
+        Desde que llegaste a mi vida, todo es más bonito.  
+        Cada sonrisa tuya ilumina mis días y cada momento contigo
+        es un regalo y quien diria lo importante que te volverias para mi no me veo sin ti mi vida
+    </p>
+    <p><strong>¿Quieres ser mi San Valentín? 🌹</strong></p>
+
+    <button onclick="mostrarRespuesta()">Sí, acepto 💘</button>
+
+    <div class="respuesta" id="respuesta">
+        ¡Sabía que dirías que sí, mi amargada!  
+        Te amo muchísimo ❤️
+    </div>
+</div>
+
+<script>
+function mostrarRespuesta() {
+    document.getElementById("respuesta").style.display = "block";
+}
+
+// Generar corazones flotando
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 400);
+</script>
+
+</body>
+</html>
